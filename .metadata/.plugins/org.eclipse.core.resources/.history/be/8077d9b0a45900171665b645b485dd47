@@ -1,0 +1,21 @@
+package com.spring.hibernate.integration.dao;
+
+import org.springframework.data.document.mongodb.MongoTemplate;
+
+/**
+ * Base DAO for Hibernate Entities
+ * @author pascal
+ */
+public abstract class AbstractBaseDao {
+
+    protected MongoTemplate mongoTemplate;
+
+    public void setMongoTemplate(MongoTemplate template) {
+        this.mongoTemplate = template;
+    }
+
+    public MongoTemplate getMongoTemplate() {
+        return this.mongoTemplate;
+    }
+
+}

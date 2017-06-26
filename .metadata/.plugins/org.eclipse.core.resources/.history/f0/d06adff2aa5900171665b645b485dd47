@@ -1,0 +1,149 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>com.spring.hibernate</groupId>
+<artifactId>integration</artifactId>
+<packaging>jar</packaging>
+<version>0.0.1</version>
+<name>spring-mongo-project</name>
+<url>http://www.redstream.nl</url>
+<properties>
+<mule.version>3.1.1</mule.version>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<maven.build.timestamp.format>dd-MM-yyyy HH:mm:ss</maven.build.timestamp.format>
+<timestamp>${maven.build.timestamp}</timestamp>
+</properties>
+<dependencies>
+<!--  Apache commons dependecies  -->
+
+<!--  Hibernate dependecies  -->
+<dependency>
+<groupId>org.hibernate</groupId>
+<artifactId>hibernate-core</artifactId>
+<version>3.3.1.GA</version>
+<exclusions>
+<exclusion>
+<artifactId>commons-collections</artifactId>
+<groupId>commons-collections</groupId>
+</exclusion>
+</exclusions>
+</dependency>
+<dependency>
+<groupId>org.hibernate</groupId>
+<artifactId>hibernate-annotations</artifactId>
+<version>3.2.1.ga</version>
+<exclusions>
+<exclusion>
+<artifactId>commons-collections</artifactId>
+<groupId>commons-collections</groupId>
+</exclusion>
+</exclusions>
+</dependency>
+<dependency>
+<groupId>org.hibernate</groupId>
+<artifactId>hibernate-commons-annotations</artifactId>
+<version>3.3.0.ga</version>
+</dependency>
+<dependency>
+<groupId>org.hibernate</groupId>
+<artifactId>hibernate-entitymanager</artifactId>
+<version>3.3.2.GA</version>
+</dependency>
+<!--  Spring dependecies  -->
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-orm</artifactId>
+<version>3.1.1.RELEASE</version>
+</dependency>
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-tx</artifactId>
+<version>3.1.1.RELEASE</version>
+</dependency>
+<dependency>
+<groupId>org.springframework.data</groupId>
+<artifactId>spring-data-mongodb</artifactId>
+<version>1.10.4.RELEASE</version>
+</dependency>
+<dependency>
+       <groupId>org.slf4j</groupId>
+       <artifactId>slf4j-api</artifactId>
+       <version>1.7.5</version>
+   </dependency>
+   <dependency>
+       <groupId>org.slf4j</groupId>
+       <artifactId>slf4j-log4j12</artifactId>
+       <version>1.7.5</version>
+   </dependency>
+   <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+
+   
+<!--  Logging dependecies  -->
+<dependency>
+<groupId>log4j</groupId>
+<artifactId>log4j</artifactId>
+<version>1.2.13</version>
+</dependency>
+<!--  Test dependecies  -->
+<dependency>
+<groupId>junit</groupId>
+<artifactId>junit</artifactId>
+<version>4.7</version>
+<scope>test</scope>
+</dependency>
+<!--  MongoDB dependencies  -->
+<dependency>
+<groupId>org.mongodb</groupId>
+<artifactId>mongo-java-driver</artifactId>
+<version>2.6.3</version>
+<scope>provided</scope>
+</dependency>
+</dependencies>
+<build>
+<extensions>
+<extension>
+<groupId>org.apache.maven.wagon</groupId>
+<artifactId>wagon-ssh</artifactId>
+<version>1.0-beta-6</version>
+</extension>
+</extensions>
+<plugins>
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-compiler-plugin</artifactId>
+<version>2.3</version>
+<configuration>
+<source>1.5</source>
+<target>1.5</target>
+<encoding>${project.build.sourceEncoding}</encoding>
+</configuration>
+</plugin>
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-resources-plugin</artifactId>
+<version>2.4</version>
+<configuration>
+<encoding>${project.build.sourceEncoding}</encoding>
+</configuration>
+</plugin>
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-clean-plugin</artifactId>
+<version>2.2</version>
+<configuration>
+<filesets>
+<fileset>
+<directory>${basedir}</directory>
+<includes>
+<include>derby.log</include>
+<include>activemq-data</include>
+<include>.mule</include>
+<include>muleEmbeddedDB</include>
+<include>out</include>
+</includes>
+</fileset>
+</filesets>
+</configuration>
+</plugin>
+</plugins>
+</build>
+</project>

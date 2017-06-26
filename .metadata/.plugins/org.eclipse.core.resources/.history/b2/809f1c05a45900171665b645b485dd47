@@ -1,0 +1,5 @@
+package com.spring.hibernate.integration;
+
+public class LogItem {
+
+}
